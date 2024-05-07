@@ -3,7 +3,7 @@ A simple console game created to apply my C# learnings to use. It was fun :))
 
 ## Checklist
 - [ ] Prototype of Reflex with Spacebar
-- [ ] Random unpredictable start of game
+- [x] Random unpredictable start of game
 - [ ] Saving and retrieving scores using .txt file
 - [ ] Randomised Sequence of 3 keys
 - [ ] Loop the gameplay until Q press
