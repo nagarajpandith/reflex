@@ -42,9 +42,41 @@
             // sleep for N
             System.Threading.Thread.Sleep(N);
             // print GO
-            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("LET'S GOOOO !!");
-            Console.ResetColor();
+            List<string> sequence = [];
+            foreach (var item in randomMap.Keys.Select((value, i) => new { i, value }))
+            {
+                string seqItem = item.value.Remove(item.value.Length - 1);
+                Console.Write(seqItem.ToUpper());
+                sequence.Add(seqItem);
+                if (item.i != randomMap.Keys.Count - 1)
+                {
+                    Console.Write("--");
+                }
+            }
+            List<string> enteredValues = [];
+            int count = 0;
+            while (count != 8)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                    string enteredKey = keyInfo.Key.ToString();
+                    enteredValues.Add(enteredKey);
+                    count++;
+                    if (enteredKey.Equals(sequence[count - 1]))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    Console.Write(enteredKey);
+                    Console.Write(" ");
+                    Console.ResetColor();
+                }
+            }
             // start timer
             var watch = System.Diagnostics.Stopwatch.StartNew();
             // read space from user
