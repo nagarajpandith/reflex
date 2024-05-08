@@ -10,7 +10,7 @@ A simple console game created to apply my C# learnings to use. It was fun :))
 - [x] Loop the gameplay until Q press
 - [x] Handle highscore mechanism
 - [x] Restart game on ENTER press
-- [ ] Show Scoreboard
+- [x] Show Scoreboard
 - [x] Add more keys + Increase sequence length
 - [ ] Convert to the OOP Way of Programming
 - [ ] Refactor using SOLID Principles

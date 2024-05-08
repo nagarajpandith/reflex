@@ -14,7 +14,7 @@
                     { "RightArrow", ConsoleKey.RightArrow },
                     { "LeftArrow", ConsoleKey.LeftArrow }
                 };
-
+                
             bool restartLoop = true;
             while (restartLoop)
             {
@@ -82,6 +82,20 @@
                         }
                         else if (keyInfo.Key == ConsoleKey.Enter) // If Enter is pressed, restart the loop
                         {
+                            restartLoop = true;
+                            break;
+                        }
+                        else if (keyInfo.KeyChar == 'S' || keyInfo.KeyChar == 's')
+                        {
+                            var top10 = scores.OrderBy(o => o).Take(10);
+                            Console.WriteLine("----------------------------------");
+                            Console.WriteLine("|        TOP 10 SCOREBOARD       |");
+                            Console.WriteLine("----------------------------------");
+                            foreach (var item in top10)
+                            {
+                                Console.WriteLine($"|              {item}              |");
+                            }
+                            Console.WriteLine("|--------------------------------|");
                             restartLoop = true;
                             break;
                         }
