@@ -20,7 +20,22 @@
                     scores.Add(line);
                 }
             }
+
             Random r = new();
+            Dictionary<string, System.ConsoleKey> keyMap = new Dictionary<string, System.ConsoleKey>{
+            {"Escape", ConsoleKey.Escape},
+            {"Space", ConsoleKey.Spacebar},
+            {"Backspace", ConsoleKey.Backspace}
+        };
+
+            Dictionary<string, System.ConsoleKey> randomMap = new Dictionary<string, System.ConsoleKey> { };
+
+            for (int i = 0; i < 8; i++)
+            {
+                int j = r.Next(0, 2);
+                randomMap.Add($"{keyMap.Keys.ElementAt(j)}{i}", keyMap.Values.ElementAt(j));
+            }
+
             Console.WriteLine("WAIT FOR IT...\n");
             // get random int N from 1 to 10s
             int N = r.Next(1000, 10000);
