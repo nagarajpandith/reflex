@@ -22,17 +22,22 @@
             }
 
             Random r = new();
-            Dictionary<string, System.ConsoleKey> keyMap = new Dictionary<string, System.ConsoleKey>{
-            {"Escape", ConsoleKey.Escape},
-            {"Space", ConsoleKey.Spacebar},
-            {"Backspace", ConsoleKey.Backspace}
-        };
+            Dictionary<string, ConsoleKey> keyMap =
+                new()
+                {
+                    { "Escape", ConsoleKey.Escape },
+                    { "Spacebar", ConsoleKey.Spacebar },
+                    { "Backspace", ConsoleKey.Backspace },
+                    { "Tab", ConsoleKey.Tab },
+                    { "RightArrow", ConsoleKey.RightArrow },
+                    { "LeftArrow", ConsoleKey.LeftArrow }
+                };
 
             Dictionary<string, System.ConsoleKey> randomMap = new Dictionary<string, System.ConsoleKey> { };
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 10; i++)
             {
-                int j = r.Next(0, 2);
+                int j = r.Next(0, 6);
                 randomMap.Add($"{keyMap.Keys.ElementAt(j)}{i}", keyMap.Values.ElementAt(j));
             }
 
@@ -56,7 +61,7 @@
             }
             List<string> enteredValues = [];
             int count = 0;
-            while (count != 8)
+            while (count != 10)
             {
                 if (Console.KeyAvailable)
                 {
