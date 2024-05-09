@@ -14,7 +14,35 @@
                     { "RightArrow", ConsoleKey.RightArrow },
                     { "LeftArrow", ConsoleKey.LeftArrow }
                 };
-                
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(
+                @" 
+                    WELCOME TO
+             ____       __ _           
+            |  _ \ ___ / _| | _____  __
+            | |_) / _ \ |_| |/ _ \ \/ /
+            |  _ <  __/  _| |  __/>  < 
+            |_| \_\___|_| |_|\___/_/\_\
+            "
+            );
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(
+                "INSTRUCTIONS\n1. Press the keys in sequence.\n2. Sequence is always 10 keys long.\n3. Sequence always contains any of the 6 keys: ESCAPE, SPACE, RIGHTARROW, LEFTARROW, TAB & BACKSPACE.\n4. Game might randomly start anytime within 10 seconds from now.\n"
+            );
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("|            CONTROLS            |");
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("|          Q - Quit Game         |");
+            Console.WriteLine("|        R - Restart Game        |");
+            Console.WriteLine("|        S - Show Scoreboard     |");
+            Console.WriteLine("|--------------------------------|");
+            Console.ResetColor();
+
             bool restartLoop = true;
             while (restartLoop)
             {
@@ -149,12 +177,6 @@
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("Restarting...  ");
-                        WriteProgress(0);
-                        for (var i = 0; i <= 40; ++i)
-                        {
-                            WriteProgress(i, true);
-                            Thread.Sleep(50);
-                        }
                         Console.ResetColor();
                     }
                 }
@@ -187,6 +209,22 @@
                     sw.WriteLine(txt);
                 }
             }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(
+                @"
+                    Thank you for playing Reflex! ^_^
+             _   _                 _                      
+            | | | |               | |                     
+            | |_| |__   __ _ _ __ | | ___   _  ___  _   _ 
+            | __| '_ \ / _` | '_ \| |/ / | | |/ _ \| | | |
+            | |_| | | | (_| | | | |   <| |_| | (_) | |_| |
+            \__|_| |_|\__,_|_| |_|_|\_\\__, |\___/ \__,_|
+                                        __/ |            
+                                        |___/    
+            "
+            );
+            Console.ResetColor();
         }
     }
 }

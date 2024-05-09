@@ -14,7 +14,7 @@ A simple console game created to apply my C# learnings to use. It was fun :))
 - [x] Add more keys + Increase sequence length
 - [ ] Convert to the OOP Way of Programming
 - [ ] Refactor using SOLID Principles
-- [ ] Add Instructions and Controls
+- [x] Add Instructions and Controls
 - [x] Learn to change Console colors (Misc)
-- [ ] ASCII Art Welcome and Thank you messages (Misc)
+- [x] ASCII Art Welcome and Thank you messages (Misc)
 - [ ] Loading indicators for Start and Restart (Misc)
