@@ -18,3 +18,5 @@ A simple console game created to apply my C# learnings to use. It was fun :))
 - [x] Learn to change Console colors (Misc)
 - [x] ASCII Art Welcome and Thank you messages (Misc)
 - [x] Loading indicators for Start and Restart (Misc)
+- [ ] Create executable for Github Releases
+- [x] C to clear scores store

@@ -49,6 +49,7 @@ namespace ReflexGame
             Console.WriteLine("|          Q - Quit Game         |");
             Console.WriteLine("|        R - Restart Game        |");
             Console.WriteLine("|        S - Show Scoreboard     |");
+            Console.WriteLine("|          C - Clear Scores      |");
             Console.WriteLine("|--------------------------------|");
             Console.ResetColor();
 
@@ -58,6 +59,10 @@ namespace ReflexGame
                 // retrieve stored scores from text file
                 string path = Environment.CurrentDirectory + @"\scores.txt";
                 List<double> scores = [];
+                if (!File.Exists(path))
+                {
+                    File.WriteAllText(path, "0");
+                }
                 var lines = File.ReadAllLines(path);
                 for (var i = 0; i < lines.Length; i += 1)
                 {
@@ -135,6 +140,24 @@ namespace ReflexGame
                             Console.WriteLine("|--------------------------------|");
                             restartLoop = true;
                             break;
+                        }
+                        else if (keyInfo.KeyChar == 'C' || keyInfo.KeyChar == 'c')
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nAre you sure you want to clear all Scores? (Y/N)");
+                            char res = Console.ReadKey(true).KeyChar;
+                            if (res == 'Y' || res == 'y')
+                            {
+                                Console.WriteLine("\nClearing Scores...\n");
+                                File.WriteAllText(path, String.Empty);
+                                Console.ResetColor();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Scores cleared!\n");
+                                Console.ResetColor();
+                            }
+                            restartLoop = true;
+                            break;
+                            Console.ResetColor();
                         }
                         string enteredKey = keyInfo.Key.ToString();
                         enteredValues.Add(enteredKey);
