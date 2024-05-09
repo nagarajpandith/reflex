@@ -17,4 +17,4 @@ A simple console game created to apply my C# learnings to use. It was fun :))
 - [x] Add Instructions and Controls
 - [x] Learn to change Console colors (Misc)
 - [x] ASCII Art Welcome and Thank you messages (Misc)
-- [ ] Loading indicators for Start and Restart (Misc)
+- [x] Loading indicators for Start and Restart (Misc)

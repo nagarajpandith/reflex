@@ -1,4 +1,6 @@
-﻿namespace ReflexGame
+﻿using static ReflexGame.ConsoleUtility;
+
+namespace ReflexGame
 {
     class Program
     {
@@ -31,6 +33,13 @@
             Console.WriteLine(
                 "INSTRUCTIONS\n1. Press the keys in sequence.\n2. Sequence is always 10 keys long.\n3. Sequence always contains any of the 6 keys: ESCAPE, SPACE, RIGHTARROW, LEFTARROW, TAB & BACKSPACE.\n4. Game might randomly start anytime within 10 seconds from now.\n"
             );
+            WriteProgressBar(0);
+            for (var i = 0; i <= 100; ++i)
+            {
+                WriteProgressBar(i, true);
+                Thread.Sleep(50);
+            }
+            Console.WriteLine("\n");
             Console.ResetColor();
 
             Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -177,6 +186,12 @@
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("Restarting...  ");
+                        WriteProgress(0);
+                        for (var i = 0; i <= 40; ++i)
+                        {
+                            WriteProgress(i, true);
+                            Thread.Sleep(50);
+                        }
                         Console.ResetColor();
                     }
                 }
