@@ -26,7 +26,7 @@
 
         private List<double> scores = [];
 
-        private readonly List<string> sequence = [];
+        private List<string> sequence = [];
 
         private Dictionary<string, ConsoleKey> randomMap = [];
 
@@ -41,7 +41,7 @@
             {
                 scores = LoadScores();
                 Random r = new();
-                randomMap = GenerateMap(r);
+                GenerateMap(r);
 
                 Console.WriteLine("\n");
                 Console.WriteLine("WAIT FOR IT...\n");
@@ -88,6 +88,8 @@
                         string enteredKey = keyInfo.Key.ToString();
                         enteredValues.Add(enteredKey);
                         count++;
+                        // Console.WriteLine(enteredKey, sequence[count - 1]);
+                        // Console.WriteLine(enteredKey.Equals(sequence[count - 1]));
                         if (enteredKey.Equals(sequence[count - 1]))
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -184,11 +186,11 @@
             Console.WriteLine(
                 @" 
                     WELCOME TO
-             __       __ _           
-            |  _ \ _ / | | __  __
-            | |) / _ \ || |/ _ \ \/ /
-            |  _ <  _/  _| |  _/>  < 
-            || \\_|| ||\_//\\
+             ____       __ _           
+            |  _ \ ___ / _| | _____  __
+            | |_) / _ \ |_| |/ _ \ \/ /
+            |  _ <  __/  _| |  __/>  < 
+            |_| \_\___|_| |_|\___/_/\_\
             "
             );
             Console.ResetColor();
@@ -262,6 +264,7 @@
 
         private void GenerateSequence()
         {
+            sequence.Clear();
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             foreach (var item in randomMap.Keys.Select((value, i) => new { i, value }))
             {
@@ -296,15 +299,14 @@
             return scores;
         }
 
-        private Dictionary<string, ConsoleKey> GenerateMap(Random r)
+        private void GenerateMap(Random r)
         {
-            Dictionary<string, ConsoleKey> randomMap = [];
+            randomMap.Clear();
             for (int i = 0; i < 10; i++)
             {
                 int j = r.Next(0, 6);
                 randomMap.Add($"{_keyMap.Keys.ElementAt(j)}{i}", _keyMap.Values.ElementAt(j));
             }
-            return randomMap;
         }
 
         private static void End()
@@ -315,12 +317,12 @@
                     Thank you for playing Reflex! ^_^
              _   _                 _                      
             | | | |               | |                     
-            | || |_   _ _ _ _ | | _   _  _  _   _ 
-            | _| ' \ / ` | ' \| |/ / | | |/ _ \| | | |
-            | || | | | (| | | | |   <| || | () | |_| |
-            \_|| ||\,|| |||\\\_, |\_/ \,|
+            | |_| |__   __ _ _ __ | | ___   _  ___  _   _ 
+            | __| '_ \ / _` | '_ \| |/ / | | |/ _ \| | | |
+            | |_| | | | (_| | | | |   <| |_| | (_) | |_| |
+            \__|_| |_|\__,_|_| |_|_|\_\\__, |\___/ \__,_|
                                         __/ |            
-                                        |_/    
+                                        |___/    
             "
             );
             Console.ResetColor();
